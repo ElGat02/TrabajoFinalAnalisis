@@ -1,0 +1,295 @@
+.carrito-container {
+  /* Asegúrate de que el contenedor del carrito tenga un padding y, si lo deseas, un color de fondo específico */
+  padding: 20px;
+  background-color: #f4f4f4; /* Color de fondo gris claro para destacar las celdas blancas */
+}
+
+.carrito-container h2 {
+  color: #333; /* Cambio de blanco a un color oscuro para mayor legibilidad en fondo claro */
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Mantiene el espacio entre cada ítem del carrito */
+}
+
+.cart-item {
+  display: flex;
+  flex-wrap: wrap; /* Permitirá que los elementos se ajusten según sea necesario */
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+
+.cart-item-image {
+  width: 100px; /* O el tamaño que prefieras */
+  height: auto;
+  margin-right: 15px; /* Espacio a la derecha de la imagen */
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Asegura que tome el espacio disponible */
+}
+
+.detail-boxes {
+  display: flex;
+  gap: 10px;
+}
+
+.detail-box, .total-box {
+  align-self: flex-start;
+  padding: 5px;
+  background-color: #f0f0f0; /* Un ligero fondo gris para diferenciar los cuadros */
+  border: 1px solid #ccc; /* Un borde sutil */
+  border-radius: 5px; /* Bordes redondeados para estética */
+}
+
+.total-box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.total-carrito {
+  text-align: right;
+}
+
+.contenedor-del-h3 { /* Reemplaza esto con la clase o selector real de tu contenedor */
+  display: flex;
+  justify-content: flex-end; /* Alinea los elementos hijos al final (derecha) */
+}
+.total-carrito-container {
+  text-align: right; /* Alinea el contenido a la derecha */
+  width: 100%; /* Asegura que el div ocupe todo el ancho disponible */
+}
+
+
+
+.cart-item-details h3, .cart-item-details p {
+  
+  margin: 5px 0; /* Añade un pequeño espacio entre los párrafos */
+  /* Considera ajustar los estilos de texto para mejorar la legibilidad */
+}
+
+button {
+  background-color: #445783; /* Un color verde para el fondo */
+  color: white; /* Texto en blanco para contraste */
+  padding: 12px 12px; /* Espaciado interno para hacer el botón más grande */
+  border: none; /* Quitamos el borde por defecto */
+  cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+  border-radius: 4px; /* Bordes redondeados */
+  font-size: 16px; /* Un tamaño de fuente legible */
+  transition: background-color 0.3s, transform 0.2s; /* Suaviza la transición de la animación */
+  margin-top: 20px; /* Asegura un espaciado adecuado */
+  
+}
+
+button:hover {
+  background-color: #45a049; /* Un verde ligeramente más oscuro al pasar el cursor */
+  transform: translateY(-2px); /* Hace que el botón se desplace ligeramente hacia arriba */
+}
+
+button:active {
+  transform: translateY(1px); /* Da la sensación de que el botón se está presionando */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra el botón horizontalmente */
+  /* Ajustes adicionales si necesitas centrar verticalmente */
+  
+}
+.boton-centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+$particles: 60;
+$width: 500;
+$height: 400;
+
+// Create the explosion...
+$box-shadow: ();
+$box-shadow2: ();
+@for $i from 0 through $particles {
+  $box-shadow: $box-shadow,
+               random($width)-$width / 2 + px
+               random($height)-$height / 1.2 + px
+               hsl(random(360), 100, 50);
+  $box-shadow2: $box-shadow2, 0 0 #fff
+}
+@mixin keyframes ($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-ms-keyframes #{$animationName} {
+        @content;
+    }
+
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin animation-delay ($settings) {
+    -moz-animation-delay: $settings;
+    -webkit-animation-delay: $settings;
+    -o-animation-delay: $settings;
+    -ms-animation-delay: $settings;
+    animation-delay: $settings;
+}
+
+@mixin animation-duration ($settings) {
+    -moz-animation-duration: $settings;
+    -webkit-animation-duration: $settings;
+    -o-animation-duration: $settings;
+    -ms-animation-duration: $settings;
+    animation-duration: $settings;
+}
+
+@mixin animation ($settings) {
+    -moz-animation: $settings;
+    -webkit-animation: $settings;
+    -o-animation: $settings;
+    -ms-animation: $settings;
+    animation: $settings;
+}
+
+@mixin transform ($settings) {
+    transform: $settings;
+    -moz-transform: $settings;
+    -webkit-transform: $settings;
+    -o-transform: $settings;
+    -ms-transform: $settings;
+}
+
+body {
+  margin:0;
+  padding:0;
+  background: #003366;
+  overflow: hidden;
+}
+
+.pyro > .before, .pyro > .after {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  box-shadow: $box-shadow2;
+  @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
+}
+    
+.pyro > .after {
+  @include animation-delay((1.25s, 1.25s, 1.25s));
+  @include animation-duration((1.25s, 1.25s, 6.25s));
+}
+        
+@include keyframes(bang) {
+  to {
+    box-shadow:$box-shadow;
+  }
+}
+    
+@include keyframes(gravity)  {
+  to {
+    @include transform(translateY(200px));
+    opacity: 0;
+  }
+}
+    
+@include keyframes(position) {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%;
+  }
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%;
+  }
+  40%, 59.9% {  
+    margin-top: 20%;
+    margin-left: 70%
+  }
+  60%, 79.9% {  
+    margin-top: 30%;
+    margin-left: 20%;
+  }
+  80%, 99.9% {  
+    margin-top: 30%;
+    margin-left: 80%;
+  }
+}
+
+
+
+
+
+
+
+/* Estilos generales del formulario */
+form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Estilos para las etiquetas */
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+/* Estilos para la retroalimentación de error */
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: #e3342f;
+}
+
+/* Estilos para la sección del radio button */
+div > label {
+  margin-right: 10px;
+}
+  
+  

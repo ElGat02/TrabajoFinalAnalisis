@@ -1,0 +1,97 @@
+/* Estilos para la imagen */
+img {
+  width: 140px; /* Ancho fijo */
+  height: 150px; /* Alto fijo */
+  object-fit: cover; /* Esto asegura que la imagen se recorte para llenar el espacio definido */
+  display: block; /* Hace que la imagen sea un bloque para centrarla fácilmente */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+/* Contenedor de productos */
+.productos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Estilos individuales de cada producto */
+.producto {
+  position: relative;
+  flex: 0 0 30%; /* Asegura que cada producto tome cerca del 30% del espacio */
+  margin: 11px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 15px;
+  
+  
+  text-align: center; /* Centra el contenido (incluyendo texto e imagen) horizontalmente */
+}
+
+/* Estilos al pasar el ratón por encima */
+.producto:hover {
+  transform: scale(1.1);
+  z-index: 10; /* Asegura que el producto ampliado esté sobre los demás */
+}
+
+/* Difuminar los productos que no están siendo seleccionados */
+.productos-container:hover .producto {
+  opacity: 0.6;
+}
+
+.productos-container .producto:hover {
+  opacity: 1;
+}
+
+.info {
+  position: absolute;
+  bottom: 0; /* Ajusta según necesites para posicionar el cuadro */
+  left: 0; /* Ajusta según necesites para posicionar el cuadro */
+  width: 100%; /* Ajusta según el ancho de tu imagen */
+  background-color: rgba(0, 0, 0, 0.5); /* Ejemplo de color de fondo semi-transparente negro */
+  color: white; /* Color del texto */
+  padding: 10px; /* Espaciado dentro del cuadro */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.producto h3, .producto p {
+  margin: 0; /* Elimina márgenes por defecto para alinear mejor el texto */
+}
+.producto .info {
+  
+  padding: 10px 0; /* Espacio interior arriba y abajo */
+}
+
+.producto img {
+  
+
+  border-top-left-radius: 10px; /* Bordes redondeados en la parte superior de la imagen */
+  border-top-right-radius: 10px;
+  margin-bottom: 54px; /* Aumenta el espacio debajo de la imagen */
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+
+  input[type="text"] {
+    width: 100%;
+    max-width: 500px; // Limita el ancho máximo para no ocupar toda la pantalla en dispositivos grandes
+    padding: 10px 20px;
+    border: 2px solid #ccc; // Color del borde
+    border-radius: 25px; // Bordes redondeados
+    font-size: 16px; // Tamaño del texto
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra suave para dar profundidad
+    transition: border-color 0.3s, box-shadow 0.3s; // Transiciones suaves para interacciones
+
+    &:focus {
+      border-color: #007bff; // Cambia el color del borde al enfocarse
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); // Sombra más pronunciada al enfocar
+      outline: none; // Elimina el contorno predeterminado para no interferir con los estilos personalizados
+    }
+
+    &::placeholder {
+      color: #aaa; // Color del texto del placeholder
+      font-style: italic; // Estilo del texto del placeholder
+    }
+  }
+}
